@@ -4,10 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A static, single-page "save the date" wedding website for Ujjwal & Apurva (28–30 November 2026), intended for hosting at apurwal.in. There is no build step, package manager, linter, or test suite — just `index.html`, `script.js`, and `assets/`. Not a git repository.
+A static, single-page "save the date" wedding website for Ujjwal & Apurva (28–30 November 2026), live at https://www.apurwal.in. There is no build step, package manager, linter, or test suite — just `index.html`, `script.js`, and `assets/`.
 
 - **Preview:** open `index.html` directly in a browser, or serve the folder (e.g. `python3 -m http.server`). Google Fonts needs network access.
-- **Deploy:** the user uploads `index.html`, `script.js`, and `assets/` together to the web root, keeping the folder structure. Nothing here publishes automatically.
+- **Deploy:** `origin` is github.com/darshanthakral/ujjwal-apurva-invite-garden-trail. Vercel (project `project-apurwal`, account `code-guy1`) deploys `main` to www.apurwal.in on every push, so **pushing `main` publishes immediately**; other branches get login-protected Vercel previews. The previous engagement invite is preserved on the `engagement-invite-backup` branch. The `royal` remote (project-apurwal repo) was pushed to by mistake and is not the live site. This machine has no stored GitHub credentials — the user pushes from their own terminal.
 
 - **Link preview / favicon:** Open Graph tags in `<head>` use absolute `https://www.apurwal.in/` URLs (required by WhatsApp; the bare apurwal.in domain 308-redirects to www, so use www). `assets/og-image.jpg` is rendered from `design/og-card/card.html` (site fonts, 1200×630, faces kept in the centre 630px square so square-cropped thumbnails still work) via headless Chrome: `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --window-size=1200,630 --virtual-time-budget=6000 --screenshot=out.png file://…/card.html`, then converted to JPEG. Headless Chrome writes the file but may not exit — kill it after the PNG appears. Favicons are circular crops of `design/couple-illustration.png`. `design/` is not deployed.
 
